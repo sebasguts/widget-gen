@@ -210,6 +210,9 @@ function makeTrait(data: Attributes.Attribute, innerTrait=false): string {
         traitDef = `DataUnion(${parts.join(', ')}${allowNoneArg})`;
         tag = tag.slice(0, tag.length - 1) + ', **data_union_serialization)';
         break;
+      case 'any':
+        traitDef = `Any(${defValue}${allowNoneArg})`;
+        break;
 
       default:
         throw new Error(`Unknown type: ${(data as any).type}`);

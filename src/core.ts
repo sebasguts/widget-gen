@@ -132,6 +132,15 @@ namespace Attributes {
   }
 
   /**
+   * Any attribute definition.
+   */
+  export
+  interface IAny extends IBase {
+    type: 'any';
+    default?: any | null;
+  }
+
+  /**
    * An extended attribute definition.
    */
   export
@@ -139,7 +148,7 @@ namespace Attributes {
     IArray | IObject | IWidgetRef |
     IString | IFloat | IInteger |
     IBoolean | IUnion | INDArray |
-    IDataUnion
+    IDataUnion | IAny
   );
 
   /**

@@ -1,7 +1,7 @@
 
 from ipywidgets import Widget, DOMWidget, widget_serialization
 
-from traitlets import Unicode, Instance, Union, List, Tuple, Dict, Int, CFloat, Bool, Undefined
+from traitlets import Unicode, Instance, Union, List, Tuple, Dict, Int, CFloat, Bool, Undefined, Any
 
 
 class A(Widget):
@@ -14,6 +14,7 @@ class A(Widget):
     tuple = Tuple(Int(), Unicode(), CFloat(), default_value=(3, 'foo', '4.5')).tag(sync=True)
     dict = Dict().tag(sync=True)
     ddict = Dict(default_value={'foo': 'bar'}).tag(sync=True)
+    anyType = Any("any").tag(sync=True)
 
     not_synced = Unicode()
 

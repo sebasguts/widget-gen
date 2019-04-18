@@ -105,6 +105,7 @@ trait_to_type = {
     traitlets.Instance: 'widgetRef',
     NDArray: 'ndarray',
     DataUnion: 'dataunion',
+    traitlets.Any: 'any'
 }
 
 
