@@ -129,6 +129,7 @@ namespace Attributes {
   interface IUnion extends IBase {
     type: 'union';
     oneOf: DefinedAttribute[];
+    default?: any | null;
   }
 
   /**

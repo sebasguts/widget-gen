@@ -101,14 +101,15 @@ function makeTrait(data: Attributes.Attribute, innerTrait=false): string {
     if (data.allowNull !== undefined && data.allowNull !== false) {
       allowNoneArg = `, allow_none=${convertValue(data.allowNull)}`;
     }
+
+    let defValue = convertValue(data.default);
     if (Attributes.isUnion(data)) {
 
       const defs = data.oneOf.map((subdata) => makeTrait(subdata, true));
-      traitDef = `Union([\n${INDENT}${INDENT}${defs.join(`,\n${INDENT}${INDENT}`)}\n${INDENT}]${allowNoneArg})`;
+      traitDef = `Union([\n${INDENT}${INDENT}${defs.join(`,\n${INDENT}${INDENT}`)}\n${INDENT}], default_value=${defValue}${allowNoneArg})`;
 
     } else {
 
-      let defValue = convertValue(data.default);
       switch (data.type) {
 
       case 'int':

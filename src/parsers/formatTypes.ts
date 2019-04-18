@@ -137,6 +137,7 @@ interface IDataUnionAttributeJSON extends ITypedAttributeJSON {
 export
 interface IUnionAttributeJSON extends IBaseAttributeJSON {
   oneOf: NNAttributeDef[];
+  default?: any | null;
 }
 
 /**
@@ -248,6 +249,8 @@ export function translateToInternal(attribute: AttributeDef): Attributes.Attribu
     return {
       type: 'union',
       oneOf: attribute.oneOf.map((a) => translateToInternal(a)),
+        ...attribute.allowNull && {allowNull: attribute.allowNull},
+        default: attribute.default
     }
   } else if (isArrayAttribute(attribute)) {
     let items: undefined | Attributes.DefinedAttribute[] | Attributes.DefinedAttribute;
