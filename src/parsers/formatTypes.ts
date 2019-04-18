@@ -250,13 +250,13 @@ export function translateToInternal(attribute: AttributeDef): Attributes.Attribu
       oneOf: attribute.oneOf.map((a) => translateToInternal(a)),
     }
   } else if (isArrayAttribute(attribute)) {
-    let items: undefined | Attributes.DefinedAttribute[];
+    let items: undefined | Attributes.DefinedAttribute[] | Attributes.DefinedAttribute;
     if (attribute.items === undefined) {
       items = undefined;
     } else if (Array.isArray(attribute.items)) {
       items = attribute.items.map((a) => translateToInternal(a));
     } else {
-      items = [translateToInternal(attribute.items)];
+      items = translateToInternal(attribute.items);
     }
     return {
       ...attribute,

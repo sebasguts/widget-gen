@@ -40,7 +40,7 @@ namespace Attributes {
   interface IArray extends IBase {
     type: 'array';
     default?: any[] | null;
-    items?: DefinedAttribute[];
+    items?: DefinedAttribute[] | DefinedAttribute;
   }
 
   /**
