@@ -9,6 +9,10 @@ import {
 } from './python';
 
 import {
+  JuliaWriter
+} from './julia';
+
+import {
   JavaWriter
 } from './java';
 
@@ -24,6 +28,7 @@ export {
 export
 let writers: {[key: string]: IWriterConstructor| undefined} = {
   python: PythonWriter,
+  julia: JuliaWriter,
   js: JSES5Writer,
   javascript: JSES5Writer,
   'js-es5': JSES5Writer,
